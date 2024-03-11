@@ -31,7 +31,11 @@
         </div>
        
         <h1 class="col-4 " >{{ love }}</h1>
-        <h1 class="col-4 text-center">{{time}}</h1>
+        <h1 class="col-4 text-center" :class="
+          isEven 
+          ? 'red' 
+          : 'black'
+        ">{{time}}</h1>
         <h1 class="col-4  text-end " >{{death}}</h1>
 
       </div>
@@ -43,6 +47,7 @@
     <main class="">
       <input class="w-100 text-center " type="text" v-model="messaggio">
       <h1 class="text-center ">{{ messaggio }}</h1>
+      <span class="btn btn-secondary "> Take your time</span>
     </main>
   
     <!--------------------/MAIN--------------------->

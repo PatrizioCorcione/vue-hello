@@ -6,8 +6,9 @@ createApp({
       return {
           messaggio: "Collateral Beauty",
           love: "❤️",
-          time: "00:00:00",
+          time: "",
           death: "💀",
+          isEven: false,
           img: "/assets/img/1.jpeg", 
       }
   },
@@ -26,11 +27,29 @@ createApp({
         ? '0' + d.getSeconds() 
         : d.getSeconds();
       this.time = `${h}:${m}:${s}`;
+
+    },
+    colorClock(){
+
+      this.isEven = !this.isEven;
+      
+    },
+    startClock(){
+      setInterval(() => {
+        this.innerclock();
+        this.colorClock();
+      }, 1000);
+     
+    },
+    resetClock(){
+      this.time = "00:00:00";
     }
+    
   },
 
   mounted(){
-    setInterval(this.innerclock, 1000);
+    this.startClock();
+    
   }
 
 }).mount('#app');
