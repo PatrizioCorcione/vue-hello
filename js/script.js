@@ -9,7 +9,12 @@ createApp({
           time: "",
           death: "💀",
           isEven: false,
-          img: "/assets/img/1.jpeg", 
+          img: "/assets/img/1.jpeg",
+          startClock: setInterval(() => {
+            this.innerclock();
+            this.colorClock();
+          }, 1000),
+          startAndStop: false,
       }
   },
 
@@ -34,23 +39,25 @@ createApp({
       this.isEven = !this.isEven;
       
     },
-    startClock(){
-      setInterval(() => {
-        this.innerclock();
-        this.colorClock();
-      }, 1000);
-     
-    },
+    
     resetClock(){
-      this.time = "00:00:00";
-    }
+      
+      
+      if(this.startAndStop){
+        this.startAndStop = false;
+        this.innerclock();
+        this.startClock = setInterval(() => {
+          this.innerclock();
+          this.colorClock();
+        }, 1000);
+      }else{
+        clearInterval(this.startClock);
+        this.time = "LOVE:TIME:DEATH";
+        this.startAndStop = true;
+      } 
+    },
     
   },
-
-  mounted(){
-    this.startClock();
-    
-  }
 
 }).mount('#app');
 
