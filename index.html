@@ -24,20 +24,25 @@
   <div id="app">
 
     <header>
-    
-      <div class="row row-cols-3 p-3 ">
-        <h1 class="col " >{{ love }}</h1>
-        <h1 class=" col text-center">{{time}}</h1>
-        <h1 class="col text-end " >{{death}}</h1>
+
+      <div class="row p-3 ">
+        <div class="col-12 d-flex  justify-content-center" >
+          <img :src="img" alt="">
+        </div>
+       
+        <h1 class="col-4 " >{{ love }}</h1>
+        <h1 class="col-4 text-center">{{time}}</h1>
+        <h1 class="col-4  text-end " >{{death}}</h1>
+
       </div>
       
     </header>
     <!-------------------/HEADER-------------------->
 
     <!---------------------MAIN--------------------->
-    <main>
-      <input type="text" v-model="messaggio">
-      <h1>{{ messaggio }}</h1>
+    <main class="">
+      <input class="w-100 text-center " type="text" v-model="messaggio">
+      <h1 class="text-center ">{{ messaggio }}</h1>
     </main>
   
     <!--------------------/MAIN--------------------->

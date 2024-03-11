@@ -4,10 +4,11 @@ createApp({
 
   data() {
       return {
-          messaggio: "Hello World!",
+          messaggio: "Collateral Beauty",
           love: "❤️",
           time: "00:00:00",
           death: "💀",
+          img: "/assets/img/1.jpeg", 
       }
   },
 
